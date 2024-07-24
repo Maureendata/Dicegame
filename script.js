@@ -10,7 +10,7 @@ let player1el=document.querySelector('.player--1');
 const rollBtn=document.querySelector('.btn--roll');
 const newBtn=document.querySelector('.btn--new');
 const holdBtn=document.querySelector('.btn--hold');
-
+const nameWinner=document.querySelector('.player .name');
 //initializing values
 let playing,activePlayer,currentScore,scores;
 function init(){
@@ -62,7 +62,7 @@ holdBtn.addEventListener('click',function(){
         scores[activePlayer]+=currentScore;
         document.getElementById(`score--${activePlayer}`).textContent=scores[activePlayer];
         //check if scores of active player is greater than 20
-        if(scores[activePlayer]>=20)
+        if(scores[activePlayer]>=100)
             {
               playing=false;
               diceEl.classList.add('hidden'); 
@@ -70,6 +70,7 @@ holdBtn.addEventListener('click',function(){
               holdBtn.classList.add('hidden');
              document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
               document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+              nameWinner.textContent='WINNER 😍';
             }
             else{
 switchPlayer();
